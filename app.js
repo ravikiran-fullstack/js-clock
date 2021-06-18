@@ -10,6 +10,13 @@ function rotateSecondHand() {
   const seconds = now.getSeconds();
 
   const secondsDegrees = (seconds / 60) * 360 + 90;
+  if(seconds === 0){
+      console.log('0000 ')
+    secondsHand.style.transition = 'none';    
+  } else {
+    secondsHand.style.transition = 'all 0.05s';  
+    secondsHand.style.transitionTimingFunction = 'cubic-bezier(0, 1.76, 0, 1.6)';  
+  }
   secondsHand.style.transform = `rotate(${secondsDegrees}deg)`; 
   digiSecond.innerHTML = `:${seconds < 10 ? "0"+seconds: seconds}`;
   console.log("seconds --", seconds, secondsDegrees);
